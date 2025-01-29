@@ -73,12 +73,9 @@ public class Calculator {
         return res = num1 * num2;
     }
 
-    /*public double devider(){
-        if (num2 == 0.0){
-            throw new RuntimeException();
-        }
-        return num1 / num2;
-    }*/
+    public double devider(){
+        return res = num1 / num2;
+    }
 
     public String calculated() {
         if (operation.equals("+") || operation.equals("*") || operation.equals("/") || operation.equals("-")) {
@@ -98,11 +95,11 @@ public class Calculator {
                             throw new RuntimeException();
                         } catch (RuntimeException e) {
                             flag = false;
-                            return "Error! Division by zero";
-
+                            return num1 + " " + operation + " " + num2 + " = " + "Error! Division by zero";
                         }
                     } else {
-                        res = num1 / num2;
+                        devider();
+                        break;
                     }
             }
         } else {
@@ -110,12 +107,12 @@ public class Calculator {
                 throw new OperationError();
             } catch (OperationError e) {
                 flag = false;
-                return "Operation Error!";
+                return num1 +" " + operation + " " + num2 + " = " + "Operation Error!";
             }
         }
 
         if (flag) {
-            return String.valueOf(res);
+            return num1 +" " + operation + " " + num2 + " = " + String.valueOf(res);
         }else {
             return "";
         }

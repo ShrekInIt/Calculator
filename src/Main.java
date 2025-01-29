@@ -10,22 +10,26 @@ class Main {
         File file = new File(path);
         Scanner sc = new Scanner(file);
 
-        String separator2 = File.separator;
+       String separator2 = File.separator;
         String path2 = "C:" + separator2 + "Users" + separator2 + "artyo" + separator2 + "Desktop" + separator2 + "output.txt";
         File file2 = new File(path2);
         PrintWriter pw = new PrintWriter(file2);
 
-        String num1 = sc.next();
-        String operation = sc.next();
-        String num2 = sc.next();
-        double a, b = 0;
-        try {
-            a = Double.parseDouble(num1);
-            b = Double.parseDouble(num2);
-            Calculator calc = new Calculator(operation, a, b);
-            pw.println(calc.calculated());
-        } catch (NumberFormatException e) {
-            pw.println("Error! Not number");
+        while (sc.hasNextLine()) {
+            String num1 = sc.next();
+            String operation = sc.next();
+            String num2 = sc.next();
+            double a, b = 0;
+            try {
+                a = Double.parseDouble(num1);
+                b = Double.parseDouble(num2);
+                Calculator calc = new Calculator(operation, a, b);
+                System.out.println(calc.calculated());
+                pw.println(calc.calculated());
+            } catch (NumberFormatException e) {
+                pw.println(num1 +" " + operation + " " + num2 + " = " +"Error! Not number");
+                System.out.println(num1 +" " + operation + " " + num2 + " = " +"Error! Not number");
+            }
         }
         sc.close();
         pw.close();
