@@ -61,25 +61,45 @@ public class Calculator {
     //setters and getters
 
     //metods
-    public void calculated() {
+    public double plus(){
+        return res = num1 + num2;
+    }
+
+    public double minus(){
+        return res = num1 - num2;
+    }
+
+    public double multiplier(){
+        return res = num1 * num2;
+    }
+
+    /*public double devider(){
+        if (num2 == 0.0){
+            throw new RuntimeException();
+        }
+        return num1 / num2;
+    }*/
+
+    public String calculated() {
         if (operation.equals("+") || operation.equals("*") || operation.equals("/") || operation.equals("-")) {
             switch (operation) {
                 case "+":
-                    res = num1 + num2;
+                    plus();
                     break;
                 case "-":
-                    res = num1 - num2;
+                    minus();
                     break;
                 case "*":
-                    res = num1 * num2;
+                    multiplier();
                     break;
                 case "/":
                     if (num2 == 0.0) {
                         try {
                             throw new RuntimeException();
                         } catch (RuntimeException e) {
-                            System.out.println("Error! Division by zero");
                             flag = false;
+                            return "Error! Division by zero";
+
                         }
                     } else {
                         res = num1 / num2;
@@ -89,13 +109,15 @@ public class Calculator {
             try {
                 throw new OperationError();
             } catch (OperationError e) {
-                System.out.println("Operation Error!");
                 flag = false;
+                return "Operation Error!";
             }
         }
 
         if (flag) {
-            System.out.println(res);
+            return String.valueOf(res);
+        }else {
+            return "";
         }
     }
     //metods
