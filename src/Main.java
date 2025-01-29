@@ -20,5 +20,6 @@ class Main {
         } catch (NumberFormatException e) {
             System.out.println("Error! Not number");
         }
+        sc.close();
     }
 }
